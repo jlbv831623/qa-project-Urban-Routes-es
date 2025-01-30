@@ -1,4 +1,3 @@
-
 import data
 from selenium import webdriver
 from selenium.webdriver import Keys
@@ -19,13 +18,13 @@ class TestUrbanRoutes:
         capabilities = DesiredCapabilities.CHROME
         capabilities["goog:loggingPrefs"] = {'performance': 'ALL'}
         cls.driver = webdriver.Chrome()
-        cls.home = main.UrbanRoutesPage(cls.driver)   #AQUI
+        cls.home = main.UrbanRoutesPage(cls.driver)
 
-    def test_set_route(self):                              #PASSED
+    def test_set_route(self):
         self.driver.get(data.urban_routes_url)
         routes_page = main.UrbanRoutesPage(self.driver) #AQUI
 
-    # 1.Configurar la dirección
+    # 1.Configurar las direcciones
         address_from = data.address_from
         address_to = data.address_to
         self.driver.implicitly_wait(10)
@@ -38,7 +37,7 @@ class TestUrbanRoutes:
         self.home.select_taxi()
         self.home.select_comfort_rate()
 
-        # Verificar que la tarifa de confort se haya seleccionado correctamente
+        # Checar que la tarifa de confort se haya seleccionado
         comfort_rate_button = self.driver.find_element(*self.home.button_comfort_xpath)
         assert 'tcard active' in comfort_rate_button.get_attribute('class'), "La tarifa comfort no fue seleccionada"
 
@@ -49,7 +48,7 @@ class TestUrbanRoutes:
          self.home.code_number()
          self.home.send_cell_info()
 
-         # Verificar que el teléfono ingresado es el esperado
+         # Checar que el teléfono ingresado es el esperado
          phone_number = self.home.get_phone()
          assert phone_number == data.phone_number,f"Número esperado {data.phone_number}, pero se tiene {phone_number}"
 
@@ -101,7 +100,7 @@ class TestUrbanRoutes:
     # 9.Esperar a que aparezca la información del conductor en el modal
     def test_driver_modal(self):
         # Esperar a que el modal se actualice
-        time.sleep(40)
+        time.sleep(30)
 
         # Verificar que el modal actualiza con el conductor visible
         order_header_title = self.home.get_driver_modal_info()
@@ -114,4 +113,3 @@ class TestUrbanRoutes:
 
 
 
-#self.driver.implicitly_wait(30)
