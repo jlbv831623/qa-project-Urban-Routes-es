@@ -16,4 +16,7 @@ Para ejecutar las pruebas automatizadas se deben de seguir los siguientes pasos:
 - Tener instalado el programa Python.
 - Tener instaladas las paqueterías SELENIUM, PYTEST, PIP.
 - Actualizar la URL del servidor de Urban Routes.
-- En el archivo "TestUrbanRoutes" hacer click en el botón "Correr/run".
+- En el archivo "main" hacer click en el botón "Correr/run", o en la terminal:
+
+# Comando de ejecución:
+pytest Users\Lety\qa-project-Urban-Routes-es\main.py   
