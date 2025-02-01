@@ -18,5 +18,5 @@ Para ejecutar las pruebas automatizadas se deben de seguir los siguientes pasos:
 - Actualizar la URL del servidor de Urban Routes.
 - En el archivo "main" hacer click en el botón "Correr/run", o en la terminal:
 
-# Comando de ejecución:
-pytest Users\Lety\qa-project-Urban-Routes-es\main.py   
+# Comando de ejecución :
+pytest Users\Lety\qa-project-Urban-Routes-es\main.py       (Se instruyó incluir comando completo)

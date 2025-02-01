@@ -26,7 +26,7 @@ def retrieve_phone_code(driver) -> str:
                                               {'requestId': message_data["params"]["requestId"]})
                 code = ''.join([x for x in body['body'] if x.isdigit()])
         except WebDriverException:
-            time.sleep(1)
+            time.sleep(1)     #Instrucción inicial: No modificar"
             continue
         if not code:
             raise Exception("No se encontró el código de confirmación del teléfono.\n"
@@ -217,7 +217,7 @@ class UrbanRoutesPage:
         return self.driver.find_element(*self.order_header_title).text
 
 ########################################################################
-#######################    TEST   #####################################
+#######################    TEST   ###################################### Se ponen las pruebas en el archivo "main"
 ########################################################################
 
 class TestUrbanRoutes:
@@ -312,8 +312,7 @@ class TestUrbanRoutes:
     # 9.Esperar a que aparezca la información del conductor en el modal
     def test_driver_modal(self):
         # Esperar a que el modal se actualice
-        #time.sleep(40)
-        #WebDriverWait(self.driver, 40).until(lambda driver: time.sleep(40) is None)
+        WebDriverWait(self.driver, 40).until(lambda driver: time.sleep(40) is None)     #Se utiliza función WebDriverWait, la cual requiere tiempo para actualización de modal)
         # Verificar que el modal actualiza con el conductor visible
         order_header_title = self.home.get_driver_modal_info()
         assert 'El conductor llegará' in order_header_title, f"Se esperaba 'El conductor llegará', pero se tiene: {order_header_title}"
